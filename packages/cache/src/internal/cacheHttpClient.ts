@@ -121,10 +121,6 @@ async function getCacheEntryS3(
   paths: string[]
 ): Promise<ArtifactCacheEntry | null> {
   const primaryKey = keys[0]
-
-  console.log(s3Options)
-  console.log(s3BucketName)
-
   const s3client = new S3Client(s3Options)
 
   let contents: _content[] = new Array()
@@ -151,7 +147,7 @@ async function getCacheEntryS3(
       if (contents.length != 0) {
         break
       }
-      throw new Error(`Cannot found object in bucket ${s3BucketName}`)
+      throw new Error(`Cannot find object in bucket ${s3BucketName}`)
     }
     core.debug(`Found objects ${response.Contents.length}`)
 

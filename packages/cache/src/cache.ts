@@ -75,8 +75,6 @@ export async function restoreCache(
   s3Options?: S3ClientConfig,
   s3BucketName?: string
 ): Promise<string | undefined> {
-  console.log(`IN CACHE!!!`)
-
   checkPaths(paths)
 
   restoreKeys = restoreKeys || []
@@ -110,6 +108,10 @@ export async function restoreCache(
     )
     if (!cacheEntry?.archiveLocation) {
       // Cache not found
+
+  console.log(`CACHE NOT FOUND!!!`)
+  console.log(JSON.stringify(cacheEntry))
+
       return undefined
     }
 

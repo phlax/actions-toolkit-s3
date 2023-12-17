@@ -91,7 +91,6 @@ exports.isFeatureAvailable = isFeatureAvailable;
  */
 function restoreCache(paths, primaryKey, restoreKeys, options, enableCrossOsArchive = false, s3Options, s3BucketName) {
     return __awaiter(this, void 0, void 0, function* () {
-        console.log(`IN CACHE!!!`);
         checkPaths(paths);
         restoreKeys = restoreKeys || [];
         const keys = [primaryKey, ...restoreKeys];
@@ -113,6 +112,8 @@ function restoreCache(paths, primaryKey, restoreKeys, options, enableCrossOsArch
             }, s3Options, s3BucketName);
             if (!(cacheEntry === null || cacheEntry === void 0 ? void 0 : cacheEntry.archiveLocation)) {
                 // Cache not found
+                console.log(`CACHE NOT FOUND!!!`);
+                console.log(JSON.stringify(cacheEntry));
                 return undefined;
             }
             if (options === null || options === void 0 ? void 0 : options.lookupOnly) {

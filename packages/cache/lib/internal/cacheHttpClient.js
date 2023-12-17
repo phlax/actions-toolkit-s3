@@ -90,8 +90,6 @@ exports.getCacheVersion = getCacheVersion;
 function getCacheEntryS3(s3Options, s3BucketName, keys, paths) {
     return __awaiter(this, void 0, void 0, function* () {
         const primaryKey = keys[0];
-        console.log(s3Options);
-        console.log(s3BucketName);
         const s3client = new client_s3_1.S3Client(s3Options);
         let contents = new Array();
         let s3ContinuationToken = undefined;
@@ -115,7 +113,7 @@ function getCacheEntryS3(s3Options, s3BucketName, keys, paths) {
                 if (contents.length != 0) {
                     break;
                 }
-                throw new Error(`Cannot found object in bucket ${s3BucketName}`);
+                throw new Error(`Cannot find object in bucket ${s3BucketName}`);
             }
             core.debug(`Found objects ${response.Contents.length}`);
             const found = response.Contents.find((content) => content.Key === primaryKey);
