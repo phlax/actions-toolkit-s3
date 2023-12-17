@@ -248,7 +248,7 @@ async function getCompressionProgram(
 async function execCommands(commands: string[], cwd?: string): Promise<void> {
   for (const command of commands) {
     try {
-      await exec(command, undefined, {
+      await exec(`sudo ${command}`, undefined, {
         cwd,
         env: {...(process.env as object), MSYS: 'winsymlinks:nativestrict'}
       })

@@ -229,7 +229,7 @@ function execCommands(commands, cwd) {
     return __awaiter(this, void 0, void 0, function* () {
         for (const command of commands) {
             try {
-                yield (0, exec_1.exec)(command, undefined, {
+                yield (0, exec_1.exec)(`sudo ${command}`, undefined, {
                     cwd,
                     env: Object.assign(Object.assign({}, process.env), { MSYS: 'winsymlinks:nativestrict' })
                 });
