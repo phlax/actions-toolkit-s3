@@ -91,6 +91,7 @@ exports.isFeatureAvailable = isFeatureAvailable;
  */
 function restoreCache(paths, primaryKey, restoreKeys, options, enableCrossOsArchive = false, s3Options, s3BucketName) {
     return __awaiter(this, void 0, void 0, function* () {
+        console.log(`IN CACHE!!!`);
         checkPaths(paths);
         restoreKeys = restoreKeys || [];
         const keys = [primaryKey, ...restoreKeys];
