@@ -122,7 +122,7 @@ async function getCacheEntryS3(
 ): Promise<ArtifactCacheEntry | null> {
   const primaryKey = keys[0]
 
-  console.log(s3options)
+  console.log(s3Options)
   console.log(s3BucketName)
 
   const s3client = new S3Client(s3Options)
